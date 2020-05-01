@@ -21,39 +21,40 @@
 </div>
     <div class="block2">
         <label for='age'>Age</label>
-  <input id='age' type='text'/>
-        <label for='bloodgroup'>blood-group</label>
-  <input id='bloodgroup' type='text'/>
+  <input type="number" id='age'>
+        <label for='bloodgroup'>DOB</label>
+  <input id='bloodgroup' type='date'/>
     </div>
+<label for='options'>country</label>
+    <select id="options"  onchange="myfunc()" >
+        <option></option>
 
-    <h1>Gender</h1>
+    </select>
+
+
+    <h1 style="margin-left:2%">Gender</h1>
 
 <div class="block3">
   <input id='male'
-         name='talk-type'
          type='radio'
          value='male' />
   <label for='male'>male</label>
   <input id='female'
-         name='talk-type'
          type='radio'
          value='female'
          />
   <label for='female'>female</label>
 </div>
-
     <div class="block4" >
   <label for='color'>favorite color</label>
   <input id='color' type='text'/>
 
 
 </div>
-    <div class="block5" >
+
   <label for='mes'>message you want to convey</label>
   <input id='mes' type='text'/>
 
-
-</div>
 
     <div class='block6'>
   <button id="button">Submit</button>
@@ -61,15 +62,17 @@
 
     </div>
 <div class="main2">
-<table id="task"  border="1">
+<table id="task"  border="2">
   <tr>
-    <td>Firstname</td>
+    <td>Name</td>
     <td>Email</td>
     <td>Age</td>
-    <td>blood-group</td>
+    <td>DOB</td>
       <td>gender</td>
       <td>fav-color</td>
       <td>message</td>
+      <td>country</td>
+      <td>capital</td>
   </tr>
 </table>
 

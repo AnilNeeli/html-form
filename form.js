@@ -1,3 +1,32 @@
+var capital
+let f=document.getElementById("options");
+fetch('https://restcountries.eu/rest/v2/all').then((el)=>{
+     return el.json();}).then((el)=>{
+      el.forEach(a=>{
+         let c=a.name;
+         myOption = document.createElement("option");
+         myOption.text = c;
+         myOption.value = c;
+         f.appendChild(myOption);
+     })})
+
+function myfunc () {
+        let c=document.getElementById("options").value;
+        fetch('https://restcountries.eu/rest/v2/all').then((el)=>{
+             return el.json();}).then((el)=>{
+                     el.forEach(a=>{
+                          let d=a.name;
+                          if (d==c){
+                                     capital=a.capital;
+                                 }
+                     })
+                     })
+
+
+             }
+
+
+
 document.getElementById("button").addEventListener("click",function()
 {
    var val1=["full-name","email","age","bloodgroup"];
@@ -7,29 +36,24 @@ document.getElementById("button").addEventListener("click",function()
   else {
     val1.push("female");
   }
-
 val1.push("color");
 val1.push("mes");
-val2=[];
-for(var i=0;i<val1.length;i++)
-{
-    var a=document.getElementById(val1[i]).value;
-    val2.push(a);
-}
+val1.push("options");
 var tb1=document.getElementById("task");
 var row1=tb1.insertRow();
-var cel1=row1.insertCell(0);
-var cel2=row1.insertCell(1);
-var cel3=row1.insertCell(2);
-var cel4=row1.insertCell(3);
-var cel5=row1.insertCell(4);
-var cel6=row1.insertCell(5);
-var cel7=row1.insertCell(6);
-cel1.innerHtml="anil";
-cel2.innerHtml="kumar";
-cel3.innerHtml="anl";
-cel4.innerHtml="kumar";
-cel5.innerHtml="crr";
-cel6.innerHtml="done";
-cel7.innerHtml="jvjl";
+var i=0;
+val1.forEach((el,i)=>{
+    var cel=row1.insertCell(i);
+    var a=document.getElementById(val1[i]).value;
+    let newText=document.createTextNode(a);
+    document.getElementById(val1[i]).value="";
+    document.getElementById(val1[4]).checked=false;
+    cel.appendChild(newText);
+     i++;
+});
+let newText=document.createTextNode(capital);
+var cel=row1.insertCell(8);
+cel.appendChild(newText);
+
+alert("form submitted successfully");
 })
