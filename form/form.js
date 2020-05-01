@@ -46,10 +46,11 @@ val1.forEach((el,i)=>{
     var cel=row1.insertCell(i);
     var a=document.getElementById(val1[i]).value;
     let newText=document.createTextNode(a);
-    document.getElementById(val1[i]).value="";
-    document.getElementById(val1[4]).checked=false;
     cel.appendChild(newText);
-     i++;
+     if (i!=4){
+    document.getElementById(val1[i]).value="";
+    }
+    i++;
 });
 let newText=document.createTextNode(capital);
 var cel=row1.insertCell(8);
